@@ -11,15 +11,7 @@ import Notification from './components/notification/Notification'
 function App() {
   const [feedbacks, setFeedbacks] = useState(() => {
 	  const infoFromLS = JSON.parse(localStorage.getItem('feedbackInfo'));
-    if (infoFromLS === null) {
-      setFeedbacks({
-        good: 0,
-	      neutral: 0,
-	      bad: 0
-      })
-    } 
-
-    return infoFromLS;
+    return infoFromLS !== null ? infoFromLS : {good: 0, neutral: 0, bad: 0}
   })
 
   useEffect(() => {
